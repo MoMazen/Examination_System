@@ -60,10 +60,6 @@
     <edmx:ConceptualModels>
       <Schema Namespace="ITIDBProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ITIDBProjectEntities" annotation:LazyLoadingEnabled="true" >
-          <FunctionImport Name="CorrectExam" ReturnType="Collection(Int32)">
-            <Parameter Name="Exam_Id" Mode="In" Type="Int32" />
-            <Parameter Name="Student_Id" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="Exam_Answer">
             <Parameter Name="Exam_id" Mode="In" Type="Int32" />
             <Parameter Name="course_id" Mode="In" Type="Int32" />
@@ -107,7 +103,11 @@
           <FunctionImport Name="sp_select_from_Student" ReturnType="Collection(ITIDBProjectModel.sp_select_from_Student_Result)" />
           <FunctionImport Name="sp_select_from_Topic" ReturnType="Collection(ITIDBProjectModel.sp_select_from_Topic_Result)" />
           <FunctionImport Name="Generate_Exam" ReturnType="Collection(ITIDBProjectModel.Generate_Exam_Result1)">
-            <Parameter Name="course_id" Mode="In" Type="Int32" />
+          <Parameter Name="course_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="CorrectExam" ReturnType="Collection(Int32)">
+            <Parameter Name="Exam_Id" Mode="In" Type="Int32" />
+            <Parameter Name="Student_Id" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Generate_Exam_Result">
@@ -210,7 +210,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ITIDBProjectModelStoreContainer" CdmEntityContainer="ITIDBProjectEntities" >
-          <FunctionImportMapping FunctionImportName="CorrectExam" FunctionName="ITIDBProjectModel.Store.CorrectExam" />
           <FunctionImportMapping FunctionImportName="Exam_Answer" FunctionName="ITIDBProjectModel.Store.Exam_Answer" />
           <FunctionImportMapping FunctionImportName="GetCourseTopics" FunctionName="ITIDBProjectModel.Store.GetCourseTopics">
             <ResultMapping>
@@ -360,6 +359,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CorrectExam" FunctionName="ITIDBProjectModel.Store.CorrectExam" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -30,19 +30,17 @@ namespace Examination_System
         /// </summary>
         private void InitializeComponent()
         {
-            this.Load += new System.EventHandler(this.Exams_Load);
-
             this.components = new System.ComponentModel.Container();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnPrev = new System.Windows.Forms.Button();
             this.lblStdName = new System.Windows.Forms.Label();
             this.TimingBar = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             this.TimeLb1 = new System.Windows.Forms.Label();
             this.lblQuestionNo = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
-            this.lblCourse = new System.Windows.Forms.Label();
             this.question = new System.Windows.Forms.GroupBox();
             this.qOption4 = new System.Windows.Forms.RadioButton();
             this.qOption3 = new System.Windows.Forms.RadioButton();
@@ -60,12 +58,13 @@ namespace Examination_System
             // btnSubmit
             // 
             this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSubmit.FlatAppearance.BorderSize = 0;
             this.btnSubmit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
             this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubmit.Font = new System.Drawing.Font("Mongolian Baiti", 14F, System.Drawing.FontStyle.Bold);
             this.btnSubmit.ForeColor = System.Drawing.Color.White;
-            this.btnSubmit.Location = new System.Drawing.Point(667, 517);
+            this.btnSubmit.Location = new System.Drawing.Point(667, 549);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Padding = new System.Windows.Forms.Padding(2);
@@ -90,12 +89,12 @@ namespace Examination_System
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.btnPrev);
             this.panel2.Controls.Add(this.lblStdName);
             this.panel2.Controls.Add(this.TimingBar);
             this.panel2.Controls.Add(this.lblQuestionNo);
             this.panel2.Controls.Add(this.btnNext);
-            this.panel2.Controls.Add(this.lblCourse);
             this.panel2.Controls.Add(this.question);
             this.panel2.Controls.Add(this.btnSubmit);
             this.panel2.Controls.Add(this.label4);
@@ -106,6 +105,16 @@ namespace Examination_System
             this.panel2.Size = new System.Drawing.Size(1249, 678);
             this.panel2.TabIndex = 0;
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.label2.ForeColor = System.Drawing.Color.Peru;
+            this.label2.Location = new System.Drawing.Point(21, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(167, 35);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "Student Name:";
+            // 
             // btnPrev
             // 
             this.btnPrev.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
@@ -115,7 +124,7 @@ namespace Examination_System
             this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrev.Font = new System.Drawing.Font("Mongolian Baiti", 14F, System.Drawing.FontStyle.Bold);
             this.btnPrev.ForeColor = System.Drawing.Color.White;
-            this.btnPrev.Location = new System.Drawing.Point(343, 517);
+            this.btnPrev.Location = new System.Drawing.Point(343, 551);
             this.btnPrev.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Padding = new System.Windows.Forms.Padding(2);
@@ -130,7 +139,7 @@ namespace Examination_System
             // 
             this.lblStdName.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
             this.lblStdName.ForeColor = System.Drawing.Color.Peru;
-            this.lblStdName.Location = new System.Drawing.Point(927, 30);
+            this.lblStdName.Location = new System.Drawing.Point(194, 65);
             this.lblStdName.Name = "lblStdName";
             this.lblStdName.Size = new System.Drawing.Size(269, 35);
             this.lblStdName.TabIndex = 46;
@@ -142,27 +151,27 @@ namespace Examination_System
             this.TimingBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.TimingBar.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.TimingBar.ForeColor = System.Drawing.Color.White;
-            this.TimingBar.Location = new System.Drawing.Point(1083, 524);
-            this.TimingBar.Maximum = 80;
+            this.TimingBar.Location = new System.Drawing.Point(1032, 492);
+            this.TimingBar.Maximum = 3600;
             this.TimingBar.Minimum = 0;
             this.TimingBar.Name = "TimingBar";
             this.TimingBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.TimingBar.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.TimingBar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.TimingBar.Size = new System.Drawing.Size(151, 151);
+            this.TimingBar.Size = new System.Drawing.Size(183, 183);
             this.TimingBar.TabIndex = 43;
             this.TimingBar.Text = "guna2CircleProgressBar1";
             // 
             // TimeLb1
             // 
             this.TimeLb1.AutoSize = true;
-            this.TimeLb1.Font = new System.Drawing.Font("Bernard MT Condensed", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimeLb1.Font = new System.Drawing.Font("Bernard MT Condensed", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TimeLb1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.TimeLb1.Location = new System.Drawing.Point(55, 60);
+            this.TimeLb1.Location = new System.Drawing.Point(48, 75);
             this.TimeLb1.Name = "TimeLb1";
-            this.TimeLb1.Size = new System.Drawing.Size(58, 29);
+            this.TimeLb1.Size = new System.Drawing.Size(89, 36);
             this.TimeLb1.TabIndex = 38;
-            this.TimeLb1.Text = "Tmg";
+            this.TimeLb1.Text = "60:00";
             // 
             // lblQuestionNo
             // 
@@ -178,11 +187,12 @@ namespace Examination_System
             // btnNext
             // 
             this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNext.FlatAppearance.BorderSize = 0;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("Mongolian Baiti", 14F, System.Drawing.FontStyle.Bold);
             this.btnNext.ForeColor = System.Drawing.Color.White;
-            this.btnNext.Location = new System.Drawing.Point(667, 492);
+            this.btnNext.Location = new System.Drawing.Point(667, 549);
             this.btnNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNext.Name = "btnNext";
             this.btnNext.Padding = new System.Windows.Forms.Padding(2);
@@ -191,17 +201,6 @@ namespace Examination_System
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // lblCourse
-            // 
-            this.lblCourse.AutoSize = true;
-            this.lblCourse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F);
-            this.lblCourse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.lblCourse.Location = new System.Drawing.Point(537, 30);
-            this.lblCourse.Name = "lblCourse";
-            this.lblCourse.Size = new System.Drawing.Size(93, 27);
-            this.lblCourse.TabIndex = 39;
-            this.lblCourse.Text = "Course";
             // 
             // question
             // 
@@ -215,7 +214,7 @@ namespace Examination_System
             this.question.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.question.Name = "question";
             this.question.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.question.Size = new System.Drawing.Size(845, 270);
+            this.question.Size = new System.Drawing.Size(944, 270);
             this.question.TabIndex = 28;
             this.question.TabStop = false;
             this.question.Text = "Question";
@@ -275,13 +274,13 @@ namespace Examination_System
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bernard MT Condensed", 18F);
+            this.label4.Font = new System.Drawing.Font("Bernard MT Condensed", 25F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.label4.Location = new System.Drawing.Point(624, 23);
+            this.label4.Location = new System.Drawing.Point(469, 26);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 36);
+            this.label4.Size = new System.Drawing.Size(343, 49);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Exam";
+            this.label4.Text = "Examination System";
             // 
             // label1
             // 
@@ -310,6 +309,7 @@ namespace Examination_System
             this.Name = "Exams";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Exams";
+            this.Load += new System.EventHandler(this.Exams_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -327,18 +327,18 @@ namespace Examination_System
         private Panel panel2;
         private Label label4;
         private Label label1;
-        private GroupBox question;
         private Label TimeLb1;
+        private Guna.UI2.WinForms.Guna2CircleProgressBar TimingBar;
+        private Timer timer1;
+        private Label lblStdName;
+        private Label label2;
+        private Button btnPrev;
+        private Label lblQuestionNo;
+        private Button btnNext;
+        private GroupBox question;
         private RadioButton qOption4;
         private RadioButton qOption3;
         private RadioButton qOption2;
         private RadioButton qOption1;
-        private Label lblCourse;
-        private Button btnNext;
-        private Label lblQuestionNo;
-        private Guna.UI2.WinForms.Guna2CircleProgressBar TimingBar;
-        private Timer timer1;
-        private Button btnPrev;
-        private Label lblStdName;
     }
 }

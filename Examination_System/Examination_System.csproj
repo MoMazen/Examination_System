@@ -70,6 +70,7 @@
     <Compile Include="chooseSubject.Designer.cs">
       <DependentUpon>chooseSubject.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExamAnswers_Model.cs" />
     <Compile Include="ITIDBProjectDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

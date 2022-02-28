@@ -28,19 +28,6 @@ namespace Examination_System
         }
     
     
-        public virtual ObjectResult<Nullable<int>> CorrectExam(Nullable<int> exam_Id, Nullable<int> student_Id)
-        {
-            var exam_IdParameter = exam_Id.HasValue ?
-                new ObjectParameter("Exam_Id", exam_Id) :
-                new ObjectParameter("Exam_Id", typeof(int));
-    
-            var student_IdParameter = student_Id.HasValue ?
-                new ObjectParameter("Student_Id", student_Id) :
-                new ObjectParameter("Student_Id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("CorrectExam", exam_IdParameter, student_IdParameter);
-        }
-    
         public virtual int Exam_Answer(Nullable<int> exam_id, Nullable<int> course_id, Nullable<int> question_id, Nullable<int> student_id, string answer)
         {
             var exam_idParameter = exam_id.HasValue ?
@@ -188,6 +175,19 @@ namespace Examination_System
                 new ObjectParameter("course_id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Generate_Exam_Result1>("Generate_Exam", course_idParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> CorrectExam(Nullable<int> exam_Id, Nullable<int> student_Id)
+        {
+            var exam_IdParameter = exam_Id.HasValue ?
+                new ObjectParameter("Exam_Id", exam_Id) :
+                new ObjectParameter("Exam_Id", typeof(int));
+    
+            var student_IdParameter = student_Id.HasValue ?
+                new ObjectParameter("Student_Id", student_Id) :
+                new ObjectParameter("Student_Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("CorrectExam", exam_IdParameter, student_IdParameter);
         }
     }
 }

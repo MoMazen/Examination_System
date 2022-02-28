@@ -15,6 +15,7 @@ namespace Examination_System
     public partial class Exams : Form
     {
         private List<Generate_Exam_Result1> questionsList;
+        private ExamAnswers_Model[] answersList = new ExamAnswers_Model[10];
         private int questionIndex = 0;
         private int questionNumber = 1;
         private int courseId;
@@ -74,28 +75,51 @@ namespace Examination_System
             }
         }
 
-        int chorno = 80000;
+        int duration = 3_600;
         int count = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            chorno -= 1;
+            duration--;
             count++;
+
+            int min = duration / 60;
+            int sec = duration - min * 60;
+
             TimingBar.Value = count;
-            TimeLb1.Text = "" + chorno;
-            if (TimingBar.Value == 80000)
+
+            string timer = min + ":" + sec;
+            if(sec < 10)
+                timer = min + ":0" + sec;
+            if (min < 10)
+                timer = "0" + timer;
+
+            TimeLb1.Text = timer;
+            if (TimingBar.Value == 3_600)
             {
-                TimingBar.Value = 0;
                 timer1.Stop();
-                MessageBox.Show("Time Over");
+                submitAnswers();
+                var result = Program.dbEntity.CorrectExam(questionsList[0].Exam_Id, 1);
+
+                int? studentRsult = -1;
+
+                foreach (var r in result)
+                {
+                    studentRsult = r;
+                }
+
+                MessageBox.Show($"Sorry your time has finished!\n Your result is {studentRsult}", "Alert");
                 this.Close();
             }
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            saveStudentAnswer();
+
             questionIndex++;
             questionNumber++;
             ShowCurrentQuestion();
+            qOption1.Checked = true;
             if (questionIndex + 1 == questionsList.Count)
             {
                 btnNext.Visible = false;
@@ -106,7 +130,19 @@ namespace Examination_System
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            saveStudentAnswer();
+            submitAnswers();
+            var result = Program.dbEntity.CorrectExam(questionsList[0].Exam_Id, 1);
 
+            int? studentRsult = -1;
+
+            foreach (var r in result)
+            {
+                studentRsult = r;
+            }
+            timer1.Stop();
+            MessageBox.Show($"Your result is {studentRsult}", "Alert");
+            this.Close();
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
@@ -132,14 +168,44 @@ namespace Examination_System
                 }
                 else
                 {
-                    questionIndex -= 2;
+                    questionIndex --;
                 }
             }
             if (questionIndex == 0)
                 btnPrev.Visible = false;
             questionNumber--;
             ShowCurrentQuestion();
+            qOption1.Checked = true;
             btnNext.Visible = true;
+        }
+
+        private void submitAnswers()
+        {
+            foreach(var answer in answersList)
+            {
+                Program.dbEntity.Exam_Answer(answer.exam_id, answer.course_id, answer.question_id, answer.student_id, answer.answer);
+            }
+        }
+
+        private void saveStudentAnswer()
+        {
+            string studentAnswer = "";
+            if (qOption1.Checked)
+                studentAnswer = qOption1.Text;
+            else if (qOption2.Checked)
+                studentAnswer = qOption2.Text;
+            else if (qOption3.Checked)
+                studentAnswer = qOption3.Text;
+            else if (qOption4.Checked)
+                studentAnswer = qOption4.Text;
+
+            answersList[questionNumber - 1] = new ExamAnswers_Model();
+
+            answersList[questionNumber - 1].exam_id = questionsList[questionIndex].Exam_Id;
+            answersList[questionNumber - 1].course_id = questionsList[questionIndex].Course_ID;
+            answersList[questionNumber - 1].question_id = questionsList[questionIndex].Question_ID;
+            answersList[questionNumber - 1].student_id = 1;//Program.userData.ID;
+            answersList[questionNumber - 1].answer = studentAnswer;
         }
     }
 }
