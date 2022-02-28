@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ITIDBProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="CorrectExam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Exam_Id" Type="int" Mode="In" />
+          <Parameter Name="Student_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Exam_Answer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Exam_id" Type="int" Mode="In" />
+          <Parameter Name="course_id" Type="int" Mode="In" />
+          <Parameter Name="question_id" Type="int" Mode="In" />
+          <Parameter Name="student_id" Type="int" Mode="In" />
+          <Parameter Name="answer" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="Generate_Exam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="course_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetCourseTopics" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="course_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetExamInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Exam_Id" Type="int" Mode="In" />
+          <Parameter Name="Ques_Id" Type="int" Mode="InOut" />
+          <Parameter Name="Course_Id" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="GetExamQuestions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="exam_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetInsCoursesAndStudents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="instructor_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetStudentAnswers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="student_id" Type="int" Mode="In" />
+          <Parameter Name="exam_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetStudentGrades" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="student_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetStudentsInDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dept_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="LoginProcedure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="pass" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_select_from_Course" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_select_from_Department" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_select_from_Instructor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_select_from_Question" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_select_from_Question_Type" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_select_from_Student" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_select_from_Topic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="ITIDBProjectModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ITIDBProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ITIDBProjectEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="CorrectExam" ReturnType="Collection(Int32)">
+            <Parameter Name="Exam_Id" Mode="In" Type="Int32" />
+            <Parameter Name="Student_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Exam_Answer">
+            <Parameter Name="Exam_id" Mode="In" Type="Int32" />
+            <Parameter Name="course_id" Mode="In" Type="Int32" />
+            <Parameter Name="question_id" Mode="In" Type="Int32" />
+            <Parameter Name="student_id" Mode="In" Type="Int32" />
+            <Parameter Name="answer" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetCourseTopics" ReturnType="Collection(ITIDBProjectModel.GetCourseTopics_Result)">
+          <Parameter Name="course_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetExamInfo">
+            <Parameter Name="Exam_Id" Mode="In" Type="Int32" />
+            <Parameter Name="Ques_Id" Mode="InOut" Type="Int32" />
+            <Parameter Name="Course_Id" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetExamQuestions" ReturnType="Collection(ITIDBProjectModel.GetExamQuestions_Result)">
+          <Parameter Name="exam_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetInsCoursesAndStudents" ReturnType="Collection(ITIDBProjectModel.GetInsCoursesAndStudents_Result)">
+          <Parameter Name="instructor_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetStudentAnswers" ReturnType="Collection(ITIDBProjectModel.GetStudentAnswers_Result)">
+            <Parameter Name="student_id" Mode="In" Type="Int32" />
+            <Parameter Name="exam_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetStudentGrades" ReturnType="Collection(ITIDBProjectModel.GetStudentGrades_Result)">
+          <Parameter Name="student_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetStudentsInDepartment" ReturnType="Collection(ITIDBProjectModel.GetStudentsInDepartment_Result)">
+          <Parameter Name="dept_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="LoginProcedure" ReturnType="Collection(ITIDBProjectModel.LoginProcedure_Result)">
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_select_from_Course" ReturnType="Collection(ITIDBProjectModel.sp_select_from_Course_Result)" />
+          <FunctionImport Name="sp_select_from_Department" ReturnType="Collection(ITIDBProjectModel.sp_select_from_Department_Result)" />
+          <FunctionImport Name="sp_select_from_Instructor" ReturnType="Collection(ITIDBProjectModel.sp_select_from_Instructor_Result)" />
+          <FunctionImport Name="sp_select_from_Question" ReturnType="Collection(ITIDBProjectModel.sp_select_from_Question_Result)" />
+          <FunctionImport Name="sp_select_from_Question_Type" ReturnType="Collection(ITIDBProjectModel.sp_select_from_Question_Type_Result)" />
+          <FunctionImport Name="sp_select_from_Student" ReturnType="Collection(ITIDBProjectModel.sp_select_from_Student_Result)" />
+          <FunctionImport Name="sp_select_from_Topic" ReturnType="Collection(ITIDBProjectModel.sp_select_from_Topic_Result)" />
+          <FunctionImport Name="Generate_Exam" ReturnType="Collection(ITIDBProjectModel.Generate_Exam_Result1)">
+            <Parameter Name="course_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Generate_Exam_Result">
+          <Property Type="Int32" Name="Question_ID" Nullable="false" />
+          <Property Type="Int32" Name="Course_ID" Nullable="false" />
+          <Property Type="String" Name="Question" Nullable="true" />
+          <Property Type="Int32" Name="Type_ID" Nullable="true" />
+          <Property Type="String" Name="Choice" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetCourseTopics_Result">
+          <Property Type="String" Name="Course_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Topic_Name" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetExamQuestions_Result">
+          <Property Type="String" Name="Question" Nullable="true" />
+          <Property Type="Int32" Name="Type_ID" Nullable="true" />
+          <Property Type="String" Name="Answer" Nullable="true" />
+          <Property Type="String" Name="Choice" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetInsCoursesAndStudents_Result">
+          <Property Type="String" Name="Course_Name" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="No_Students" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetStudentAnswers_Result">
+          <Property Type="String" Name="Question" Nullable="true" />
+          <Property Type="String" Name="Correct_Answer" Nullable="true" />
+          <Property Type="String" Name="Std_Ans" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetStudentGrades_Result">
+          <Property Type="String" Name="Course_Name" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Grade" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetStudentsInDepartment_Result">
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Gender" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="GPA" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="LoginProcedure_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UserType" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="BirthDate" Nullable="true" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Gender" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_select_from_Course_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Grade" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_select_from_Department_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Location" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Manger_id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_select_from_Instructor_Result">
+          <Property Type="Decimal" Name="Salary" Nullable="true" Precision="19" />
+          <Property Type="String" Name="Degree" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_select_from_Question_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="Course_ID" Nullable="false" />
+          <Property Type="String" Name="Answer" Nullable="true" />
+          <Property Type="Int32" Name="Type_ID" Nullable="true" />
+          <Property Type="String" Name="Content" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_select_from_Question_Type_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Degree" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_select_from_Student_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="GPA" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Dept_ID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_select_from_Topic_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Course_ID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Generate_Exam_Result1">
+          <Property Type="Int32" Name="Exam_Id" Nullable="true" />
+          <Property Type="Int32" Name="Question_ID" Nullable="false" />
+          <Property Type="Int32" Name="Course_ID" Nullable="false" />
+          <Property Type="String" Name="Question" Nullable="true" />
+          <Property Type="Int32" Name="Type_ID" Nullable="true" />
+          <Property Type="String" Name="Choice" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ITIDBProjectModelStoreContainer" CdmEntityContainer="ITIDBProjectEntities" >
+          <FunctionImportMapping FunctionImportName="CorrectExam" FunctionName="ITIDBProjectModel.Store.CorrectExam" />
+          <FunctionImportMapping FunctionImportName="Exam_Answer" FunctionName="ITIDBProjectModel.Store.Exam_Answer" />
+          <FunctionImportMapping FunctionImportName="GetCourseTopics" FunctionName="ITIDBProjectModel.Store.GetCourseTopics">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITIDBProjectModel.GetCourseTopics_Result">
+                <ScalarProperty Name="Course_Name" ColumnName="Course Name" />
+                <ScalarProperty Name="Topic_Name" ColumnName="Topic Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetExamInfo" FunctionName="ITIDBProjectModel.Store.GetExamInfo" />
+          <FunctionImportMapping FunctionImportName="GetExamQuestions" FunctionName="ITIDBProjectModel.Store.GetExamQuestions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITIDBProjectModel.GetExamQuestions_Result">
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Type_ID" ColumnName="Type_ID" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="Choice" ColumnName="Choice" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetInsCoursesAndStudents" FunctionName="ITIDBProjectModel.Store.GetInsCoursesAndStudents">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITIDBProjectModel.GetInsCoursesAndStudents_Result">
+                <ScalarProperty Name="Course_Name" ColumnName="Course_Name" />
+                <ScalarProperty Name="No_Students" ColumnName="No_Students" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetStudentAnswers" FunctionName="ITIDBProjectModel.Store.GetStudentAnswers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITIDBProjectModel.GetStudentAnswers_Result">
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Correct_Answer" ColumnName="Correct_Answer" />
+                <ScalarProperty Name="Std_Ans" ColumnName="Std_Ans" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetStudentGrades" FunctionName="ITIDBProjectModel.Store.GetStudentGrades">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITIDBProjectModel.GetStudentGrades_Result">
+                <ScalarProperty Name="Course_Name" ColumnName="Course_Name" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetStudentsInDepartment" FunctionName="ITIDBProjectModel.Store.GetStudentsInDepartment">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITIDBProjectModel.GetStudentsInDepartment_Result">
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="GPA" ColumnName="GPA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="LoginProcedure" FunctionName="ITIDBProjectModel.Store.LoginProcedure">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITIDBProjectModel.LoginProcedure_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_select_from_Course" FunctionName="ITIDBProjectModel.Store.sp_select_from_Course">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITIDBProjectModel.sp_select_from_Course_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_select_from_Department" FunctionName="ITIDBProjectModel.Store.sp_select_from_Department">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITIDBProjectModel.sp_select_from_Department_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Manger_id" ColumnName="Manger_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_select_from_Instructor" FunctionName="ITIDBProjectModel.Store.sp_select_from_Instructor">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITIDBProjectModel.sp_select_from_Instructor_Result">
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Degree" ColumnName="Degree" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_select_from_Question" FunctionName="ITIDBProjectModel.Store.sp_select_from_Question">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITIDBProjectModel.sp_select_from_Question_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="Type_ID" ColumnName="Type_ID" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_select_from_Question_Type" FunctionName="ITIDBProjectModel.Store.sp_select_from_Question_Type">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITIDBProjectModel.sp_select_from_Question_Type_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Degree" ColumnName="Degree" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_select_from_Student" FunctionName="ITIDBProjectModel.Store.sp_select_from_Student">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITIDBProjectModel.sp_select_from_Student_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GPA" ColumnName="GPA" />
+                <ScalarProperty Name="Dept_ID" ColumnName="Dept_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_select_from_Topic" FunctionName="ITIDBProjectModel.Store.sp_select_from_Topic">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITIDBProjectModel.sp_select_from_Topic_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Generate_Exam" FunctionName="ITIDBProjectModel.Store.Generate_Exam">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ITIDBProjectModel.Generate_Exam_Result1">
+                <ScalarProperty Name="Exam_Id" ColumnName="Exam_Id" />
+                <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
+                <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Type_ID" ColumnName="Type_ID" />
+                <ScalarProperty Name="Choice" ColumnName="Choice" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
