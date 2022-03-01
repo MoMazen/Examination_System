@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace Examination_System
 {
-    public partial class Subjects : Form
+    public partial class Courses : Form
     {
         private int id = -1;
-        public Subjects()
+        public Courses()
         {
             InitializeComponent();
             DisplaySubjects();
@@ -124,7 +124,7 @@ namespace Examination_System
 
         private void label4_Click(object sender, EventArgs e)
         {
-            Candidats obj = new Candidats();
+            Students obj = new Students();
             obj.Show();
             this.Hide();
         }
@@ -155,7 +155,7 @@ namespace Examination_System
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            Candidats obj = new Candidats();
+            Students obj = new Students();
             obj.Show();
             this.Hide();
         }

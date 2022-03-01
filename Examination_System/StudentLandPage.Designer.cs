@@ -40,24 +40,25 @@ namespace Examination_System
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.courseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gradeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.getStudentGradesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iTIDBProjectDataSet = new Examination_System.ITIDBProjectDataSet();
+            this.getStudentGradesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.iTIDBProjectDataSet2 = new Examination_System.ITIDBProjectDataSet2();
             this.lblStdName = new System.Windows.Forms.Label();
             this.btnTakeExam = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.getStudentGradesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iTIDBProjectDataSet = new Examination_System.ITIDBProjectDataSet();
             this.getStudentGradesTableAdapter = new Examination_System.ITIDBProjectDataSetTableAdapters.GetStudentGradesTableAdapter();
             this.getStudentGradesResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iTIDBProjectDataSet2 = new Examination_System.ITIDBProjectDataSet2();
-            this.getStudentGradesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.getStudentGradesTableAdapter1 = new Examination_System.ITIDBProjectDataSet2TableAdapters.GetStudentGradesTableAdapter();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getStudentGradesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iTIDBProjectDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getStudentGradesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iTIDBProjectDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getStudentGradesResultBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iTIDBProjectDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.getStudentGradesBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -74,6 +75,7 @@ namespace Examination_System
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.guna2DataGridView1);
             this.panel2.Controls.Add(this.lblStdName);
@@ -173,15 +175,15 @@ namespace Examination_System
             this.gradeDataGridViewTextBoxColumn.Name = "gradeDataGridViewTextBoxColumn";
             this.gradeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // getStudentGradesBindingSource
+            // getStudentGradesBindingSource1
             // 
-            this.getStudentGradesBindingSource.DataMember = "GetStudentGrades";
-            this.getStudentGradesBindingSource.DataSource = this.iTIDBProjectDataSet;
+            this.getStudentGradesBindingSource1.DataMember = "GetStudentGrades";
+            this.getStudentGradesBindingSource1.DataSource = this.iTIDBProjectDataSet2;
             // 
-            // iTIDBProjectDataSet
+            // iTIDBProjectDataSet2
             // 
-            this.iTIDBProjectDataSet.DataSetName = "ITIDBProjectDataSet";
-            this.iTIDBProjectDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.iTIDBProjectDataSet2.DataSetName = "ITIDBProjectDataSet2";
+            this.iTIDBProjectDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblStdName
             // 
@@ -221,6 +223,16 @@ namespace Examination_System
             this.label1.TabIndex = 1;
             this.label1.Text = "Quize Pro 1.0";
             // 
+            // getStudentGradesBindingSource
+            // 
+            this.getStudentGradesBindingSource.DataMember = "GetStudentGrades";
+            this.getStudentGradesBindingSource.DataSource = this.iTIDBProjectDataSet;
+            // 
+            // iTIDBProjectDataSet
+            // 
+            this.iTIDBProjectDataSet.DataSetName = "ITIDBProjectDataSet";
+            this.iTIDBProjectDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // getStudentGradesTableAdapter
             // 
             this.getStudentGradesTableAdapter.ClearBeforeFill = true;
@@ -229,19 +241,19 @@ namespace Examination_System
             // 
             this.getStudentGradesResultBindingSource.DataSource = typeof(Examination_System.GetStudentGrades_Result);
             // 
-            // iTIDBProjectDataSet2
-            // 
-            this.iTIDBProjectDataSet2.DataSetName = "ITIDBProjectDataSet2";
-            this.iTIDBProjectDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // getStudentGradesBindingSource1
-            // 
-            this.getStudentGradesBindingSource1.DataMember = "GetStudentGrades";
-            this.getStudentGradesBindingSource1.DataSource = this.iTIDBProjectDataSet2;
-            // 
             // getStudentGradesTableAdapter1
             // 
             this.getStudentGradesTableAdapter1.ClearBeforeFill = true;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F);
+            this.label3.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.label3.Location = new System.Drawing.Point(496, 185);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(281, 35);
+            this.label3.TabIndex = 49;
+            this.label3.Text = "Your Grades";
             // 
             // StudentLandPage
             // 
@@ -259,11 +271,11 @@ namespace Examination_System
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getStudentGradesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iTIDBProjectDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getStudentGradesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iTIDBProjectDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getStudentGradesResultBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iTIDBProjectDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.getStudentGradesBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -285,5 +297,6 @@ namespace Examination_System
         private BindingSource getStudentGradesBindingSource1;
         private ITIDBProjectDataSet2 iTIDBProjectDataSet2;
         private ITIDBProjectDataSet2TableAdapters.GetStudentGradesTableAdapter getStudentGradesTableAdapter1;
+        private Label label3;
     }
 }

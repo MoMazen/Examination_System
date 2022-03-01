@@ -12,11 +12,11 @@ using System.Data.SqlClient;
 namespace Examination_System
 {
     
-    public partial class Candidats : Form
+    public partial class Students : Form
     {
 
         private int id = -1;
-        public Candidats()
+        public Students()
         {
             InitializeComponent();
             DisplayCandidates();
@@ -160,14 +160,14 @@ namespace Examination_System
 
         private void label3_Click(object sender, EventArgs e)
         {
-            Subjects obj = new Subjects();
+            Courses obj = new Courses();
             obj.Show();
             this.Hide();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Subjects obj = new Subjects();
+            Courses obj = new Courses();
             obj.Show();
             this.Hide();
         }
@@ -196,9 +196,19 @@ namespace Examination_System
 
         private void label2_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Questions obj = new Questions();
             obj.Show();
+            this.Close();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
             this.Hide();
+            Reports obj = new Reports();
+            obj.Show();
+            this.Close();
+
         }
 
         //private void dataGridView1_Click(object sender, EventArgs e)

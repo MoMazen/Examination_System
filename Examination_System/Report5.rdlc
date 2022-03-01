@@ -348,10 +348,6 @@
           <DataField>Question</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <!--<Field Name="Type_ID">
-          <DataField>Type_ID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>-->
         <Field Name="Answer">
           <DataField>Answer</DataField>
           <rd:TypeName>System.String</rd:TypeName>

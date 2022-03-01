@@ -77,11 +77,11 @@
     <Compile Include="Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
     </Compile>
-    <Compile Include="Candidats.cs">
+    <Compile Include="Students.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Candidats.Designer.cs">
-      <DependentUpon>Candidats.cs</DependentUpon>
+    <Compile Include="Students.Designer.cs">
+      <DependentUpon>Students.cs</DependentUpon>
     </Compile>
     <Compile Include="chooseSubject.cs">
       <SubType>Form</SubType>
@@ -184,11 +184,11 @@
     <Compile Include="Splash.Designer.cs">
       <DependentUpon>Splash.cs</DependentUpon>
     </Compile>
-    <Compile Include="Subjects.cs">
+    <Compile Include="Courses.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Subjects.Designer.cs">
-      <DependentUpon>Subjects.cs</DependentUpon>
+    <Compile Include="Courses.Designer.cs">
+      <DependentUpon>Courses.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AllReports.resx">
       <DependentUpon>AllReports.cs</DependentUpon>
@@ -199,8 +199,8 @@
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Candidats.resx">
-      <DependentUpon>Candidats.cs</DependentUpon>
+    <EmbeddedResource Include="Students.resx">
+      <DependentUpon>Students.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="chooseSubject.resx">
       <DependentUpon>chooseSubject.cs</DependentUpon>
@@ -229,8 +229,8 @@
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Subjects.resx">
-      <DependentUpon>Subjects.cs</DependentUpon>
+    <EmbeddedResource Include="Courses.resx">
+      <DependentUpon>Courses.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ITIDBProjectDataSet1.xsc">
       <DependentUpon>ITIDBProjectDataSet1.xsd</DependentUpon>

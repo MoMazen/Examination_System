@@ -17,31 +17,11 @@ namespace Examination_System
         public Reports()
         {
             InitializeComponent();
-            DisplayCandidates();
-        }
-
-        private void DisplayCandidates()
-        {
-            
         }
 
         private void closebtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            Questions obj = new Questions();
-            obj.Show();
-            this.Hide();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            Questions obj = new Questions();
-            obj.Show();
-            this.Hide();
         }
 
         private void OpenReportDialog(int reportNo, string lblText)

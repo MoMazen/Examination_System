@@ -112,7 +112,7 @@ namespace Examination_System
         public void Report5(int exam_id)
         {
             // Fill dataSource of report5
-            GetCourseTopics_ResultBindingSource.DataSource = Program.dbEntity.GetExamQuestions(exam_id);
+            GetExamQuestions_ResultBindingSource.DataSource = Program.dbEntity.GetExamQuestions(exam_id);
             this.reportViewer5.RefreshReport();
 
             if (sfd.ShowDialog() == DialogResult.OK)

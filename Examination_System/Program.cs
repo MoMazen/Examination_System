@@ -18,7 +18,7 @@ namespace Examination_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Reports());
+            Application.Run(new Splash());
             Application.Exit();
         }
     }

@@ -163,21 +163,21 @@ namespace Examination_System
 
         private void label4_Click(object sender, EventArgs e)
         {
-            Candidats obj = new Candidats();
+            Students obj = new Students();
             obj.Show();
             this.Hide();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Subjects obj = new Subjects();
+            Courses obj = new Courses();
             obj.Show();
             this.Hide();
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
-            Subjects obj = new Subjects();
+            Courses obj = new Courses();
             obj.Show();
             this.Hide();
         }
@@ -191,7 +191,7 @@ namespace Examination_System
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            Subjects obj = new Subjects();
+            Courses obj = new Courses();
             obj.Show();
             this.Hide();
         }

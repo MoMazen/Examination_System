@@ -57,17 +57,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.GetExamQuestions_ResultBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // reportViewer5
-            // 
-            reportDataSource1.Name = "DataSet5";
-            reportDataSource1.Value = this.GetExamQuestions_ResultBindingSource;
-            this.reportViewer5.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer5.LocalReport.ReportEmbeddedResource = "Examination_System.Report5.rdlc";
-            this.reportViewer5.Location = new System.Drawing.Point(798, 119);
-            this.reportViewer5.Name = "reportViewer5";
-            this.reportViewer5.Size = new System.Drawing.Size(189, 370);
-            this.reportViewer5.TabIndex = 14;
-            // 
             // reportViewer1
             // 
             reportDataSource2.Name = "DataSet1";
@@ -111,6 +100,17 @@
             this.reportViewer4.Name = "reportViewer4";
             this.reportViewer4.Size = new System.Drawing.Size(188, 370);
             this.reportViewer4.TabIndex = 18;
+            // 
+            // reportViewer5
+            // 
+            reportDataSource1.Name = "DataSet5";
+            reportDataSource1.Value = this.GetExamQuestions_ResultBindingSource;
+            this.reportViewer5.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer5.LocalReport.ReportEmbeddedResource = "Examination_System.Report5.rdlc";
+            this.reportViewer5.Location = new System.Drawing.Point(798, 119);
+            this.reportViewer5.Name = "reportViewer5";
+            this.reportViewer5.Size = new System.Drawing.Size(189, 370);
+            this.reportViewer5.TabIndex = 14;
             // 
             // reportViewer6
             // 

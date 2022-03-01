@@ -80,6 +80,11 @@ namespace Examination_System
                         StudentLandPage studentLandPage = new StudentLandPage();
                         studentLandPage.ShowDialog();
                     }
+                    else
+                    {
+                        Reports reports = new Reports();
+                        reports.ShowDialog();
+                    }
                     this.Show();
                 }
 

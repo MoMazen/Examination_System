@@ -22,7 +22,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Topic Name</Value>
+                              <Value>Topics</Value>
                               <Style>
                                 <FontSize>14pt</FontSize>
                               </Style>
