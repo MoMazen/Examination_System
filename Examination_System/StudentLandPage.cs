@@ -14,6 +14,7 @@ namespace Examination_System
 {
     public partial class StudentLandPage : Form
     {
+        public int course_id;
         public StudentLandPage()
         {
             InitializeComponent();
@@ -23,8 +24,12 @@ namespace Examination_System
 
         private void btnTakeExam_Click(object sender, EventArgs e)
         {
-            chooseSubject chooseSubject = new chooseSubject();
+            chooseSubject chooseSubject = new chooseSubject(this);
             chooseSubject.ShowDialog();
+            Exams exam = new Exams(course_id);
+            exam.ShowDialog();
+            this.Close();
+
         }
     }
 }

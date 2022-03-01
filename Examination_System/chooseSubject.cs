@@ -14,8 +14,10 @@ namespace Examination_System
 {
     public partial class chooseSubject : Form
     {
-        public chooseSubject()
+        StudentLandPage stdLandPage;
+        public chooseSubject(StudentLandPage _stdLandPage)
         {
+            this.stdLandPage = _stdLandPage;
             InitializeComponent();
         }
 
@@ -69,8 +71,7 @@ namespace Examination_System
             ComboboxItem selectedItem = result as ComboboxItem;
             //MessageBox.Show($"Hello ID: {int.Parse(selectedItem.Value.ToString())}");
             this.Hide();
-            Exams exam = new Exams(int.Parse(selectedItem.Value.ToString()));
-            exam.ShowDialog();
+            stdLandPage.course_id = int.Parse(selectedItem.Value.ToString());
             this.Close();
         }
     }
