@@ -310,6 +310,7 @@ namespace Examination_System
             this.Name = "Exams";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Exams";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Exams_FormClosing);
             this.Load += new System.EventHandler(this.Exams_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

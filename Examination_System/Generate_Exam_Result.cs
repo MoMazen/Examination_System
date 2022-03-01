@@ -13,6 +13,7 @@ namespace Examination_System
     
     public partial class Generate_Exam_Result
     {
+        public Nullable<int> Exam_Id { get; set; }
         public int Question_ID { get; set; }
         public int Course_ID { get; set; }
         public string Question { get; set; }

@@ -10,7 +10,7 @@ namespace Examination_System
     internal static class Program
     {
 
-        public static ITIDBProjectEntities dbEntity = new ITIDBProjectEntities();
+        public static ITIDBProjectEntities1 dbEntity = new ITIDBProjectEntities1();
         public static LoginProcedure_Result userData = null;
 
         [STAThread]

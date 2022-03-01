@@ -15,10 +15,10 @@ namespace Examination_System
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class ITIDBProjectEntities : DbContext
+    public partial class ITIDBProjectEntities1 : DbContext
     {
-        public ITIDBProjectEntities()
-            : base("name=ITIDBProjectEntities")
+        public ITIDBProjectEntities1()
+            : base("name=ITIDBProjectEntities1")
         {
         }
     
@@ -27,6 +27,19 @@ namespace Examination_System
             throw new UnintentionalCodeFirstException();
         }
     
+    
+        public virtual ObjectResult<Nullable<int>> CorrectExam(Nullable<int> exam_Id, Nullable<int> student_Id)
+        {
+            var exam_IdParameter = exam_Id.HasValue ?
+                new ObjectParameter("Exam_Id", exam_Id) :
+                new ObjectParameter("Exam_Id", typeof(int));
+    
+            var student_IdParameter = student_Id.HasValue ?
+                new ObjectParameter("Student_Id", student_Id) :
+                new ObjectParameter("Student_Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("CorrectExam", exam_IdParameter, student_IdParameter);
+        }
     
         public virtual int Exam_Answer(Nullable<int> exam_id, Nullable<int> course_id, Nullable<int> question_id, Nullable<int> student_id, string answer)
         {
@@ -51,6 +64,15 @@ namespace Examination_System
                 new ObjectParameter("answer", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Exam_Answer", exam_idParameter, course_idParameter, question_idParameter, student_idParameter, answerParameter);
+        }
+    
+        public virtual ObjectResult<Generate_Exam_Result> Generate_Exam(Nullable<int> course_id)
+        {
+            var course_idParameter = course_id.HasValue ?
+                new ObjectParameter("course_id", course_id) :
+                new ObjectParameter("course_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Generate_Exam_Result>("Generate_Exam", course_idParameter);
         }
     
         public virtual ObjectResult<GetCourseTopics_Result> GetCourseTopics(Nullable<int> course_id)
@@ -136,58 +158,6 @@ namespace Examination_System
         public virtual ObjectResult<sp_select_from_Course_Result> sp_select_from_Course()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_select_from_Course_Result>("sp_select_from_Course");
-        }
-    
-        public virtual ObjectResult<sp_select_from_Department_Result> sp_select_from_Department()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_select_from_Department_Result>("sp_select_from_Department");
-        }
-    
-        public virtual ObjectResult<sp_select_from_Instructor_Result> sp_select_from_Instructor()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_select_from_Instructor_Result>("sp_select_from_Instructor");
-        }
-    
-        public virtual ObjectResult<sp_select_from_Question_Result> sp_select_from_Question()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_select_from_Question_Result>("sp_select_from_Question");
-        }
-    
-        public virtual ObjectResult<sp_select_from_Question_Type_Result> sp_select_from_Question_Type()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_select_from_Question_Type_Result>("sp_select_from_Question_Type");
-        }
-    
-        public virtual ObjectResult<sp_select_from_Student_Result> sp_select_from_Student()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_select_from_Student_Result>("sp_select_from_Student");
-        }
-    
-        public virtual ObjectResult<sp_select_from_Topic_Result> sp_select_from_Topic()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_select_from_Topic_Result>("sp_select_from_Topic");
-        }
-    
-        public virtual ObjectResult<Generate_Exam_Result1> Generate_Exam(Nullable<int> course_id)
-        {
-            var course_idParameter = course_id.HasValue ?
-                new ObjectParameter("course_id", course_id) :
-                new ObjectParameter("course_id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Generate_Exam_Result1>("Generate_Exam", course_idParameter);
-        }
-    
-        public virtual ObjectResult<Nullable<int>> CorrectExam(Nullable<int> exam_Id, Nullable<int> student_Id)
-        {
-            var exam_IdParameter = exam_Id.HasValue ?
-                new ObjectParameter("Exam_Id", exam_Id) :
-                new ObjectParameter("Exam_Id", typeof(int));
-    
-            var student_IdParameter = student_Id.HasValue ?
-                new ObjectParameter("Student_Id", student_Id) :
-                new ObjectParameter("Student_Id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("CorrectExam", exam_IdParameter, student_IdParameter);
         }
     }
 }

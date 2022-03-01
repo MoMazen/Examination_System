@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-
-            this.Load += new System.EventHandler(this.chooseSubject_Load);
-
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(chooseSubject));
             this.comBoxCourse = new System.Windows.Forms.ComboBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -38,13 +36,20 @@
             this.closebtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.selectCoursesDataSet = new Examination_System.SelectCoursesDataSet();
+            this.spselectfromCourseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sp_select_from_CourseTableAdapter = new Examination_System.SelectCoursesDataSetTableAdapters.sp_select_from_CourseTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.selectCoursesDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spselectfromCourseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // comBoxCourse
             // 
             this.comBoxCourse.AllowDrop = true;
+            this.comBoxCourse.DataSource = this.spselectfromCourseBindingSource;
+            this.comBoxCourse.DisplayMember = "Name";
             this.comBoxCourse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
             this.comBoxCourse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.comBoxCourse.FormattingEnabled = true;
@@ -53,6 +58,7 @@
             this.comBoxCourse.Name = "comBoxCourse";
             this.comBoxCourse.Size = new System.Drawing.Size(346, 31);
             this.comBoxCourse.TabIndex = 33;
+            this.comBoxCourse.ValueMember = "ID";
             // 
             // pictureBox4
             // 
@@ -121,6 +127,20 @@
             this.label5.TabIndex = 34;
             this.label5.Text = "Choose Course";
             // 
+            // selectCoursesDataSet
+            // 
+            this.selectCoursesDataSet.DataSetName = "SelectCoursesDataSet";
+            this.selectCoursesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // spselectfromCourseBindingSource
+            // 
+            this.spselectfromCourseBindingSource.DataMember = "sp_select_from_Course";
+            this.spselectfromCourseBindingSource.DataSource = this.selectCoursesDataSet;
+            // 
+            // sp_select_from_CourseTableAdapter
+            // 
+            this.sp_select_from_CourseTableAdapter.ClearBeforeFill = true;
+            // 
             // chooseSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -131,9 +151,12 @@
             this.Name = "chooseSubject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "chooseSubject";
+            this.Load += new System.EventHandler(this.chooseSubject_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.selectCoursesDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spselectfromCourseBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -146,5 +169,8 @@
         private System.Windows.Forms.Button closebtn;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label5;
+        private SelectCoursesDataSet selectCoursesDataSet;
+        private System.Windows.Forms.BindingSource spselectfromCourseBindingSource;
+        private SelectCoursesDataSetTableAdapters.sp_select_from_CourseTableAdapter sp_select_from_CourseTableAdapter;
     }
 }

@@ -18,7 +18,7 @@ namespace Examination_System
         public StudentLandPage()
         {
             InitializeComponent();
-            this.getStudentGradesTableAdapter.Fill(this.iTIDBProjectDataSet.GetStudentGrades, Program.userData.ID);
+            this.getStudentGradesTableAdapter1.Fill(this.iTIDBProjectDataSet2.GetStudentGrades, Program.userData.ID);
             lblStdName.Text = Program.userData.FirstName + " " + Program.userData.LastName;
         }
 
@@ -26,6 +26,7 @@ namespace Examination_System
         {
             chooseSubject chooseSubject = new chooseSubject(this);
             chooseSubject.ShowDialog();
+            this.Hide();
             Exams exam = new Exams(course_id);
             exam.ShowDialog();
             this.Close();

@@ -21,12 +21,10 @@ namespace Examination_System
         private void timer1_Tick(object sender, EventArgs e)
         {
             counter++;
-            //MyProgress.Value = count;
             PrecentageLbl.Text = counter + "%";
 
             if (counter == 100)
             {
-                //MyProgress.Value = 0;
                 timer1.Enabled = false;
                 this.Hide();
                 Login login = new Login();

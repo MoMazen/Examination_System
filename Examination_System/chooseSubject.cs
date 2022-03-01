@@ -23,55 +23,19 @@ namespace Examination_System
 
         private void chooseSubject_Load(object sender, EventArgs e)
         {
-            GetSubjects();
+            this.sp_select_from_CourseTableAdapter.Fill(this.selectCoursesDataSet.sp_select_from_Course);
+            comBoxCourse.SelectedIndex = 0;
         }
 
         private void closebtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        private void GetSubjects()
-        {
-            Program.dbEntity.sp_select_from_Course();
-            ObjectResult<sp_select_from_Course_Result> coursesResult = null;
-            try
-            {
-                coursesResult = Program.dbEntity.sp_select_from_Course();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Please make sure your connection is stable.");
-                return;
-            }
-            //comBoxCourse.DataSource = coursesResult;
-            comBoxCourse.DropDownStyle = ComboBoxStyle.DropDownList;
-            var courses = new List<sp_select_from_Course_Result>();
-            foreach (var result in coursesResult)
-            {
-                courses.Add(result);
-            }
-
-            List<ComboboxItem> items = new List<ComboboxItem>();
-            foreach (var course in courses)
-            {
-                ComboboxItem item = new ComboboxItem();
-
-                item.Value = course.ID;
-                item.Text = course.Name;
-
-                items.Add(item);
-            }
-            comBoxCourse.DataSource = items;
-            comBoxCourse.SelectedIndex = 0;
-        }
         
         private void button1_Click(object sender, EventArgs e)
         {
-            object result = comBoxCourse.SelectedValue;
-            ComboboxItem selectedItem = result as ComboboxItem;
-            //MessageBox.Show($"Hello ID: {int.Parse(selectedItem.Value.ToString())}");
-            this.Hide();
-            stdLandPage.course_id = int.Parse(selectedItem.Value.ToString());
+            stdLandPage.course_id = int.Parse(comBoxCourse.SelectedValue.ToString());
+            comBoxCourse.DataSource = null;
             this.Close();
         }
     }

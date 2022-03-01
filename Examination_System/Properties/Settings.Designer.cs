@@ -33,5 +33,15 @@ namespace Examination_System.Properties {
                 return ((string)(this["ITIDBProjectConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=ITIDBProject;Integrated Security=True")]
+        public string ITIDBProjectConnectionString1 {
+            get {
+                return ((string)(this["ITIDBProjectConnectionString1"]));
+            }
+        }
     }
 }

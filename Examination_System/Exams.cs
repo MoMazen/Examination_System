@@ -14,7 +14,7 @@ namespace Examination_System
 {
     public partial class Exams : Form
     {
-        private List<Generate_Exam_Result1> questionsList;
+        private List<Generate_Exam_Result> questionsList;
         private ExamAnswers_Model[] answersList = new ExamAnswers_Model[10];
         private int questionIndex = 0;
         private int questionNumber = 1;
@@ -23,7 +23,7 @@ namespace Examination_System
         public Exams(int _courseId)
         {
             courseId = _courseId;
-            questionsList = new List<Generate_Exam_Result1>();
+            questionsList = new List<Generate_Exam_Result>();
             InitializeComponent();
         }
 
@@ -39,7 +39,7 @@ namespace Examination_System
             FetchQuestions(result);
         }
 
-        private void FetchQuestions(ObjectResult<Generate_Exam_Result1> questionsQuery)
+        private void FetchQuestions(ObjectResult<Generate_Exam_Result> questionsQuery)
         {
 
             foreach (var question in questionsQuery)
@@ -98,7 +98,7 @@ namespace Examination_System
             {
                 timer1.Stop();
                 submitAnswers();
-                var result = Program.dbEntity.CorrectExam(questionsList[0].Exam_Id, 1);
+                var result = Program.dbEntity.CorrectExam(questionsList[0].Exam_Id, Program.userData.ID);
 
                 int? studentRsult = -1;
 
@@ -132,7 +132,7 @@ namespace Examination_System
         {
             saveStudentAnswer();
             submitAnswers();
-            var result = Program.dbEntity.CorrectExam(questionsList[0].Exam_Id, 1);
+            var result = Program.dbEntity.CorrectExam(questionsList[0].Exam_Id, Program.userData.ID);
 
             int? studentRsult = -1;
 
@@ -141,7 +141,7 @@ namespace Examination_System
                 studentRsult = r;
             }
             timer1.Stop();
-            MessageBox.Show($"Your result is {studentRsult}", "Alert");
+            MessageBox.Show($"Your result is {studentRsult}/50\nFor any problem please save your exam_id:{answersList[0].exam_id} and go to admin", "Alert");
             this.Close();
         }
 
@@ -206,6 +206,11 @@ namespace Examination_System
             answersList[questionNumber - 1].question_id = questionsList[questionIndex].Question_ID;
             answersList[questionNumber - 1].student_id = 1;//Program.userData.ID;
             answersList[questionNumber - 1].answer = studentAnswer;
+        }
+
+        private void Exams_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer1.Stop();
         }
     }
 }
