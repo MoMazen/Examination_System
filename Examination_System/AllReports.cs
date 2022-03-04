@@ -123,7 +123,7 @@ namespace Examination_System
         public void Report6(int exam_id, int student_id)
         {
             // Fill dataSource of report6
-            GetStudentAnswers_ResultBindingSource.DataSource = Program.dbEntity.GetStudentAnswers(exam_id, student_id);
+            GetStudentAnswers_ResultBindingSource.DataSource = Program.dbEntity.GetStudentAnswers(student_id, exam_id);
             this.reportViewer6.RefreshReport();
 
             if (sfd.ShowDialog() == DialogResult.OK)
